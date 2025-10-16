@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品展示</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
+  header { background:#fff; padding:20px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+  header h1 { margin:0; font-size:2em; }
+  .contact { margin-top:10px; }
+  .social { margin-top:10px; }
+  .social img { width:32px; vertical-align:middle; }
+  .slideshow-container { position:relative; max-width:800px; margin:40px auto; }
+  .slide { display:none; background:#fff; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,0.1); border-radius:8px; text-align:center;}
+  .slide img { max-width:100%; height:auto; border-radius:5px; }
+  .slide h2 { margin:15px 0 5px; }
+  .slide p { margin:5px 0; }
+  .prev, .next { cursor:pointer; position:absolute; top:50%; width:auto; padding:16px; margin-top:-22px; color:#333; font-weight:bold; font-size:18px; border-radius:0 3px 3px 0; user-select:none; }
+  .next { right:0; border-radius:3px 0 0 3px; }
+  .prev:hover, .next:hover { background:rgba(0,0,0,0.1); }
+  @media (max-width:600px){ .slide h2{font-size:1.2em;} .prev, .next{padding:10px; font-size:14px;} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>我的产品展示</h1>
+  <div class="contact">📞 电话: 123-4567-8901</div>
+  <div class="social">微信: <img src="https://img.icons8.com/ios-filled/50/000000/weixing.png" alt="微信"></div>
+</header>
+
+<div class="slideshow-container">
+  <div class="slide">
+    <img src="https://via.placeholder.com/600x400?text=产品1" alt="产品1">
+    <h2>产品名称1</h2>
+    <p>规格: XXX</p>
+    <p>价格: ￥100</p>
+  </div>
+  <div class="slide">
+    <img src="https://via.placeholder.com/600x400?text=产品2" alt="产品2">
+    <h2>产品名称2</h2>
+    <p>规格: XXX</p>
+    <p>价格: ￥200</p>
+  </div>
+  <div class="slide">
+    <img src="https://via.placeholder.com/600x400?text=产品3" alt="产品3">
+    <h2>产品名称3</h2>
+    <p>规格: XXX</p>
+    <p>价格: ￥300</p>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName("slide");
+  if (n >= slides.length) { slideIndex = 0; }
+  if (n < 0) { slideIndex = slides.length - 1; }
+  for (let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
+  slides[slideIndex].style.display="block";
+}
+
+// 自动轮播
+setInterval(() => { plusSlides(1); }, 5000);
+</script>
+
+</body>
+</html>
